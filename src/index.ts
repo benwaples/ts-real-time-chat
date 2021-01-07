@@ -1,3 +1,5 @@
+import { Response } from "express";
+
 const express = require('express')
 const bodyParser = require('body-parser')
 const { vegetables } = require('./endpoints/vegetables')
@@ -11,7 +13,7 @@ const port = 8080 || process.env.PORT;
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/api/v1/vegetables', vegetables)
 
-app.get('/', (req: Request, res) => {
+app.get('/', (req: Request, res: Response) => {
   console.log('you did it')
   res.send("<h1>Hello World</h1>")
 })

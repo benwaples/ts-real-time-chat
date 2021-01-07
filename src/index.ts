@@ -1,6 +1,5 @@
 import express, { Request, Response } from 'express';
-import Bundler from "parcel-bundler";
-import path from "path";
+import bodyParser from 'body-parser';
 
 const app = express();
 const port = 8080 || process.env.PORT;

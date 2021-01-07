@@ -14,12 +14,12 @@ const port = 8080 || process.env.PORT;
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/api/v1/vegetables', vegetables)
-app.use('/api/v1/vegetables', fruits)
+app.use('/api/v1/fruits', fruits)
 
 app.listen(port, () => {
   console.log(`server is listening on port: ${port}`)
 })
 
-fetch('https://fruityvice.com/api/fruit/all')
-  .then((res: any) => res.json())
-  .then(console.log)
+// fetch('https://fruityvice.com/api/fruit/all')
+//   .then((res: any) => res.json())
+//   .then(console.log)

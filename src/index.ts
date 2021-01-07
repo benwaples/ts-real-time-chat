@@ -6,11 +6,9 @@ const app = express();
 const port = 8080 || process.env.PORT;
 
 app.get('/', (req: Request, res: Response) => {
-  res.send("hi")
+  console.log('you did it')
+  res.send("<h1>Hello World</h1>")
 })
-
-const bundler = new Bundler(path.join(__dirname, "../src/client/index.html"));
-app.use(bundler.middleware());
 
 app.listen(port, () => {
   console.log(`server is listening on port: ${port}`)

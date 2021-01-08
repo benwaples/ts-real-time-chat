@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from "express";
+import { Fruit, JsonData } from "../types";
 
 const { Router } = require('express')
 const fetch = require('node-fetch')
@@ -13,10 +14,9 @@ fruits.get('/', async(req: Request, res: Response, next: NextFunction) => {
 
 fruits.get('/:name', async(req: Request, res: Response, next: NextFunction) => {
   const name = req.params.name
-  console.log(req.query.name)
-  console.log(req)
+  console.log(req.params.name)
   const json = await fetch(`https://fruityvice.com/api/fruit/${name}`)
-    .then((data: any) => data.json());
+    .then((data: JsonData): Fruit => data.json());
   
   res.send(json)
 })

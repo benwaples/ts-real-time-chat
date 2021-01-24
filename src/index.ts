@@ -1,5 +1,3 @@
-import { Response } from "express";
-const fetch = require('node-fetch')
 
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -19,7 +17,3 @@ app.use('/api/v1/fruits', fruits)
 app.listen(port, () => {
   console.log(`server is listening on port: ${port}`)
 })
-
-// fetch('https://fruityvice.com/api/fruit/all')
-//   .then((res: any) => res.json())
-//   .then(console.log)

@@ -1,8 +1,8 @@
 const pool = require('./src/utils/pool')
+const fs = require('fs')
 
-pool.query('DROP TABLE IF EXISTS vegetables CASCADE;')
+pool.query(fs.readFileSync('./sql/setup.sql', 'utf-8'));
 
-pool.query('CREATE TABLE vegetables (name TEXT NOT NULL UNIQUE)')
 
 process.on('exit', () => {
   console.log('goodbye');

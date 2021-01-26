@@ -1,0 +1,5 @@
+DROP TABLE IF EXISTS vegetables CASCADE;
+
+CREATE TABLE vegetables (
+  name TEXT NOT NULL UNIQUE
+)

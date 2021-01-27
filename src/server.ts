@@ -1,5 +1,5 @@
 const expressApp = require('./')
-// const { pool } = require('./src/utils/pool')
+const { pool } = require('./utils/pool')
 
 const PORT = process.env.PORT || 7890;
 
@@ -8,7 +8,7 @@ expressApp.listen(PORT, () => {
 })
 
 
-// process.on('exit', () => {
-//   console.log('goodbye');
-//   pool.end();
-// })
+process.on('exit', () => {
+  console.log('goodbye');
+  pool.end();
+})

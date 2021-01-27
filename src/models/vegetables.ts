@@ -1,1 +1,2 @@
-// const { pool } = require('../utils/pool.ts')
+export {};
+const { pool } = require('../utils/pool.ts')

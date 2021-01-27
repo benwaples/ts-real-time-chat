@@ -1,9 +1,10 @@
-const expressApp = require('./')
+export {};
+const app = require('./')
 const { pool } = require('./utils/pool')
 
 const PORT = process.env.PORT || 7890;
 
-expressApp.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Started on ${PORT}`)
 })
 

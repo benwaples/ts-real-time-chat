@@ -14,6 +14,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/api/v1/vegetables', vegetables)
 app.use('/api/v1/fruits', fruits)
 
-app.listen(port, () => {
-  console.log(`server is listening on port: ${port}`)
-})
+
+module.exports = app;
+// app.listen(port, () => {
+//   console.log(`server is listening on port: ${port}`)
+// })

@@ -8,7 +8,6 @@ app.listen(PORT, () => {
   console.log(`Started on ${PORT}`)
 })
 
-
 process.on('exit', () => {
   console.log('goodbye');
   pool.end();

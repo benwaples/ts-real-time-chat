@@ -2,7 +2,7 @@ export {}
 
 import { Vegetables } from "./vegetables"
 const fs = require('fs')
-const { pool } = require('../utils/pool.ts')
+const pool = require('../utils/pool.ts')
 
 describe('Vegetables class', () => {
   beforeEach(() => {

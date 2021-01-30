@@ -1,7 +1,7 @@
 import { RowType } from "../types";
 
 export {};
-const { pool } = require('../utils/pool.ts')
+const pool = require('../utils/pool.ts')
 
 export class Vegetables {
   genus: string;
@@ -27,7 +27,9 @@ export class Vegetables {
   }
 
   static async insert(vegetable: Vegetables) {
-    const stringyNutrition = JSON.stringify(vegetable.nutritions)
+    const stringyNutrition = JSON.stringify(vegetable.nutritions);
+    
+    console.log(pool)
 
     const { rows } = await pool.query(
       'INSERT INTO vegetables (genus, name, family, order, nutritions) values ($1, $2, $3, $4, $5) RETURNING *',

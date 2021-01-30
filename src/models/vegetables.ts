@@ -40,17 +40,3 @@ export class Vegetables {
   }
 
 }
-
-const example = {
-  "genus": "Malus",
-  "name": "Apple",
-  "id": 6,
-  "family": "Rosaceae",
-  "order": "Rosales",
-  "nutritions": {
-      "carbohydrates": 11.4,
-      "protein": 0.3,
-      "fat": 0.4,
-      "calories": 52,
-      "sugar": 10.3
-  }

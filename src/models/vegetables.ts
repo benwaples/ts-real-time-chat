@@ -78,7 +78,17 @@ export class Vegetables {
     if(!rows[0]) return null;
 
     return new Vegetables(rows[0])
+  }
 
+  static async delete(id: number) {
+    const { rows } = await pool.query(
+      'DELETE FROM vegetables WHERE id=$1 RETURNING *',
+      [id]
+    )
+    
+    if(!rows[0]) return null;
+
+    return new Vegetables(rows[0])
 
   }
 

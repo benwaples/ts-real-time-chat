@@ -47,4 +47,21 @@ describe('Vegetables class', () => {
     expect(actual).toEqual(updatedVegetable)
 
   })
+
+  it('should delete a vegetable when given an id', async () => {
+    const actual = await Vegetables.delete(vegetable2.id)
+
+    expect(actual).toEqual(vegetable2)
+  });
+  
+  it('when a vegetable is deleted, it should not exist in the DB anymore', async () => {
+
+    await Vegetables.delete(vegetable2.id)
+
+    const actual = await Vegetables.findById(vegetable2.id)
+
+    const expected = null
+
+    expect(actual).toEqual(expected)
+  });
 })

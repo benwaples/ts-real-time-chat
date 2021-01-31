@@ -39,4 +39,15 @@ export class Vegetables {
     return new Vegetables(rows[0])
   }
 
+  static async findAdll() {
+    
+    const { rows } = await pool.query(
+      'SELECT * FROM vegetables'
+    )
+
+    if(!rows) return null;
+
+    return rows.map((row: Vegetables) => new Vegetables(row))
+  }
+
 }

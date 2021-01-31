@@ -51,7 +51,6 @@ export class Vegetables {
   }
 
   static async findById(id: number) {
-
     const { rows } = await pool.query(
       'SELECT * FROM vegetables WHERE id=$1',
       [id]
@@ -60,6 +59,27 @@ export class Vegetables {
     if(!rows[0]) return null;
 
     return new Vegetables(rows[0])
+  }
+
+  static async update(updatedVegetable: Vegetables) {
+    const { rows } = await pool.query(`
+      UPDATE vegetables
+        SET genus=$1, 
+            name=$2, 
+            family=$3,
+            "order"=$4, 
+            nutritions=$5
+        WHERE id=$6
+        RETURNING *
+    `,
+      [updatedVegetable.genus, updatedVegetable.name, updatedVegetable.family, updatedVegetable.order, updatedVegetable.nutritions, updatedVegetable.id]
+    )
+
+    if(!rows[0]) return null;
+
+    return new Vegetables(rows[0])
+
+
   }
 
 }

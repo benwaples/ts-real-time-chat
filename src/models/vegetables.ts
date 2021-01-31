@@ -39,7 +39,7 @@ export class Vegetables {
     return new Vegetables(rows[0])
   }
 
-  static async findAdll() {
+  static async findAll() {
     
     const { rows } = await pool.query(
       'SELECT * FROM vegetables'

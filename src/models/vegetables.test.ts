@@ -27,7 +27,7 @@ describe('Vegetables class', () => {
 
   it('should return an array of all vegetables', async() => {
     
-    const actual = await Vegetables.findAll();
+    const actual = await Vegetables.findAll(); 
 
     expect(actual.length).toEqual(2)
   })

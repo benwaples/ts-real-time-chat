@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --detectOpenHandles",
+    "test:watch": "npm run test --watch",
     "start:build": "tsc -w",
     "start:run": "nodemon -r dotenv/config src/server.ts",
     "start": "concurrently npm:start:*"

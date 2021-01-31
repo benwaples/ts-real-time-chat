@@ -5,6 +5,6 @@ CREATE TABLE vegetables (
   name TEXT NOT NULL UNIQUE,
   genus TEXT NOT NULL, 
   family TEXT NOT NULL,
-  order_ TEXT NOT NULL,
-  nutritions JSON NOT NULL,
+  "order" TEXT NOT NULL,
+  nutritions JSON NOT NULL
 )

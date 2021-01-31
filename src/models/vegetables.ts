@@ -29,10 +29,8 @@ export class Vegetables {
   static async insert(vegetable: Vegetables) {
     const stringyNutrition = JSON.stringify(vegetable.nutritions);
     
-    console.log(pool)
-
     const { rows } = await pool.query(
-      'INSERT INTO vegetables (genus, name, family, order, nutritions) values ($1, $2, $3, $4, $5) RETURNING *',
+      'INSERT INTO vegetables (genus, name, family, "order", nutritions) values ($1, $2, $3, $4, $5) RETURNING *',
       [vegetable.genus, vegetable.name, vegetable.family, vegetable.order, stringyNutrition]
     )
 

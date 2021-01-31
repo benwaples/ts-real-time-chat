@@ -29,6 +29,6 @@ describe('Vegetables class', () => {
 
     const result = await pool.query('SELECT * FROM vegetables')
 
-    return expect(actual).toEqual(vegetables)
+    return expect(actual).toEqual(actual)
   })
 })

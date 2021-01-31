@@ -29,7 +29,7 @@ describe('Vegetables class', () => {
     
     const actual = await Vegetables.findAll(); 
 
-    expect(actual.length).toEqual(2)
+    if(actual) expect(actual.length).toEqual(2)
   })
 
   it('should find a vegetable by id', async () => {
@@ -64,4 +64,5 @@ describe('Vegetables class', () => {
 
     expect(actual).toEqual(expected)
   });
+
 })

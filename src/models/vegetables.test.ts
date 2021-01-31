@@ -16,8 +16,6 @@ describe('Vegetables class', () => {
   })
 
   it('should insert a vegetable into the vegetable', async () => {
-    
-
     const actual = await Vegetables.insert(vegetable)
 
     const { rows } = await pool.query('SELECT * FROM vegetables where id=$1', [vegetable.id])
@@ -38,6 +36,12 @@ describe('Vegetables class', () => {
 
     expect(actual).toEqual(vegetable2)
 
+  })
+
+  it('should return null if Vegetable.findById is given an id of a vegetable that doesnt exist', async () => { 
+    const actual = await Vegetables.findById(56)
+
+    expect(actual).toEqual(null)
   })
 
   it('should update a vegetable when given the id and updated info about the vegetable', async () => {

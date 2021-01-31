@@ -20,7 +20,7 @@ export class Vegetables {
   constructor(row: RowType) {
     this.genus = row.genus
     this.name = row.name
-    this.id = row.id
+    this.id = Number(row.id)
     this.family = row.family
     this.order = row.order
     this.nutritions = row.nutritions
@@ -48,6 +48,18 @@ export class Vegetables {
     if(!rows) return null;
 
     return rows.map((row: Vegetables) => new Vegetables(row))
+  }
+
+  static async findById(id: number) {
+
+    const { rows } = await pool.query(
+      'SELECT * FROM vegetables WHERE id=$1',
+      [id]
+    )
+
+    if(!rows[0]) return null;
+
+    return new Vegetables(rows[0])
   }
 
 }

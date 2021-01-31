@@ -30,6 +30,21 @@ export const vegetable2: Vegetables = {
   }
 }
 
+export const updatedVegetable: Vegetables = {
+  id: 2,
+  genus: 'a better topic',
+  name: 'ben2',
+  family: 'a better team',
+  order: 'faster',
+  nutritions: {
+    carbohydrates: 4,
+    protein: 3, 
+    fat: 6, 
+    calories: .3,
+    sugar: .5
+  }
+}
+
 export const vegetable: Vegetables = {
   id: 3,
   genus: 'topic',

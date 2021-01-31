@@ -1,6 +1,6 @@
 export {}
 
-import { vegetable, vegetable1, vegetable2 } from "../helper"
+import { updatedVegetable, vegetable, vegetable1, vegetable2 } from "../helper"
 import { Vegetables } from "./vegetables"
 const fs = require('fs')
 const pool = require('../utils/pool.ts')
@@ -37,6 +37,14 @@ describe('Vegetables class', () => {
     const actual = await Vegetables.findById(2)
 
     expect(actual).toEqual(vegetable2)
+
+  })
+
+  it('should update a vegetable when given the id and updated info about the vegetable', async () => {
+
+    const actual = await Vegetables.update(updatedVegetable)
+
+    expect(actual).toEqual(updatedVegetable)
 
   })
 })

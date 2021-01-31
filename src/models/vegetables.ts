@@ -26,7 +26,7 @@ export class Vegetables {
     this.nutritions = row.nutritions
   }
 
-  static async insert(vegetable: Vegetables) {
+  static async insert(vegetable: Vegetables): Promise<Vegetables | null> {
     const stringyNutrition = JSON.stringify(vegetable.nutritions);
     
     const { rows } = await pool.query(
@@ -39,7 +39,7 @@ export class Vegetables {
     return new Vegetables(rows[0])
   }
 
-  static async findAll() {
+  static async findAll(): Promise<Vegetables[] | null> {
     
     const { rows } = await pool.query(
       'SELECT * FROM vegetables'
@@ -61,7 +61,7 @@ export class Vegetables {
     return new Vegetables(rows[0])
   }
 
-  static async update(updatedVegetable: Vegetables) {
+  static async update(updatedVegetable: Vegetables): Promise<Vegetables | null> {
     const { rows } = await pool.query(`
       UPDATE vegetables
         SET genus=$1, 
@@ -80,7 +80,7 @@ export class Vegetables {
     return new Vegetables(rows[0])
   }
 
-  static async delete(id: number) {
+  static async delete(id: number): Promise<Vegetables | null> {
     const { rows } = await pool.query(
       'DELETE FROM vegetables WHERE id=$1 RETURNING *',
       [id]

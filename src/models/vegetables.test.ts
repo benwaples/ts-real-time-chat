@@ -71,4 +71,8 @@ describe('Vegetables class', () => {
 
     expect(actual.length).toEqual(2)
   })
+
+  it('should find a vegetable by id', async () => [
+
+  ])
 })

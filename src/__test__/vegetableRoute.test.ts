@@ -1,11 +1,12 @@
 export {}
 const fs = require('fs');
-const pool = require('../src/utils/pool')
+const pool = require('../utils/pool')
 const request = require('supertest')
-const app = require('../src/index')
+const app = require('../index')
 
-import { vegetable1, vegetable2 } from '../src/helper';
-import { Vegetables } from '../src/models/vegetables'
+import { Request } from 'express'
+import { vegetable1, vegetable2 } from '../helper';
+import { Vegetables } from '../models/vegetables'
 
 describe('Test vegetables router', () => {
   beforeEach(async () => {
@@ -17,6 +18,8 @@ describe('Test vegetables router', () => {
   });
 
   it('should return all vegetables in the database', () => {
-
+    return request(app)
+      .get('/api/v1/vegetables')
+      .then((res: Request) => expect(res.body.length).toEqual(2))
   })
 })

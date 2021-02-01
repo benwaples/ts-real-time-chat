@@ -22,4 +22,10 @@ describe('Test vegetables router', () => {
       .get('/api/v1/vegetables')
       .then((res: Request) => expect(res.body.length).toEqual(2))
   })
+
+  it('the first vegetables should match the data structure', () => {
+    return request(app)
+      .get('/api/v1/vegetables')
+      .then((res: Request) => expect(res.body[0]).toMatchObject(vegetable1))
+  })
 })

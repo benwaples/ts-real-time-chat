@@ -1,7 +1,7 @@
 import { Vegetables } from "./models/vegetables"
 
 export const vegetable1: Vegetables = {
-  id: 3,
+  id: 1,
   genus: 'topic',
   name: 'ben',
   family: 'team',

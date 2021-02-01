@@ -4,12 +4,19 @@ const pool = require('../src/utils/pool')
 const request = require('supertest')
 const app = require('../src/index')
 
-import Vegetables from '../src/models/vegetables'
+import { vegetable1, vegetable2 } from '../src/helper';
+import { Vegetables } from '../src/models/vegetables'
 
 describe('Test vegetables router', () => {
-  beforeEach(() => {
-    return pool.query(fs.readFileSync('./sql/setup.sql', 'utf-8'))
+  beforeEach(async () => {
+    await pool.query(fs.readFileSync('./sql/setup.sql', 'utf-8'))
+
+    await Vegetables.insert(vegetable1)
+    
+    return await Vegetables.insert(vegetable2)
   });
 
-  
+  it('should return all vegetables in the database', () => {
+
+  })
 })

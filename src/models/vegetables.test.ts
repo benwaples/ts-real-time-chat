@@ -1,6 +1,6 @@
 export {}
 
-import { updatedVegetable, vegetable, vegetable1, vegetable2 } from "../helper"
+import { updatedVegetable, insertVegetable, vegetable1, vegetable2 } from "../helper"
 import { Vegetables } from "./vegetables"
 const fs = require('fs')
 const pool = require('../utils/pool.ts')
@@ -15,10 +15,10 @@ describe('Vegetables class', () => {
     return await Vegetables.insert(vegetable2)
   })
 
-  it('should insert a vegetable into the vegetable', async () => {
-    const actual = await Vegetables.insert(vegetable)
+  it('should insert a vegetable into the vegetable table', async () => {
+    const actual = await Vegetables.insert(insertVegetable)
 
-    const { rows } = await pool.query('SELECT * FROM vegetables where id=$1', [vegetable.id])
+    const { rows } = await pool.query('SELECT * FROM vegetables where id=$1', [insertVegetable.id])
 
     return expect(actual).toEqual(new Vegetables(rows[0]))
   });

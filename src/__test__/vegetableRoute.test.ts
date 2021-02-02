@@ -5,7 +5,7 @@ const request = require('supertest')
 const app = require('../index')
 
 import { Request } from 'express'
-import { vegetable1, vegetable2 } from '../helper';
+import { insertVegetable, vegetable1, vegetable2 } from '../helper';
 import { Vegetables } from '../models/vegetables'
 
 describe('Test vegetables router', () => {
@@ -28,4 +28,12 @@ describe('Test vegetables router', () => {
       .get('/api/v1/vegetables')
       .then((res: Request) => expect(res.body[0]).toMatchObject(vegetable1))
   })
+
+  it('should insert a vegetable via GET', () =>  {
+    return request(app)
+      .post('/api/v1/vegetables')
+      .send(insertVegetable)
+      .then((res: Request) => expect(res.body).toEqual(insertVegetable))
+  })
+
 })

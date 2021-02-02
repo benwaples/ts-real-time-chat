@@ -45,7 +45,7 @@ export const updatedVegetable: Vegetables = {
   }
 }
 
-export const vegetable: Vegetables = {
+export const insertVegetable: Vegetables = {
   id: 3,
   genus: 'topic',
   name: 'Zuccinni',

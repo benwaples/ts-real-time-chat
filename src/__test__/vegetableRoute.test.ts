@@ -36,4 +36,6 @@ describe('Test vegetables router', () => {
       .then((res: Request) => expect(res.body).toEqual(insertVegetable))
   })
 
+  // test update and delete
+
 })

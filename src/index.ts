@@ -11,6 +11,8 @@ const app = express();
 const port = 8080 || process.env.PORT;
 
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.json())
+
 app.use('/api/v1/vegetables', vegetables)
 app.use('/api/v1/fruits', fruits)
 

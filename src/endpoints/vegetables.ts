@@ -12,7 +12,7 @@ vegetables.get('/', async (req: Request, res: Response, next: NextFunction) => {
 })
 
 vegetables.post('/', async (req: Request, res: Response, next: NextFunction) => {
-  console.log(req.body)
+  
   Vegetables.insert(req.body)
     .then((vegetable: Vegetables | null) => res.send(vegetable))
     .catch(next)
